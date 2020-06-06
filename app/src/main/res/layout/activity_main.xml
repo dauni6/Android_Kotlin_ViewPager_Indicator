@@ -12,15 +12,17 @@
         android:layout_height="307dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.dontsu.android_kotlin_viewpager_indicator.util.CircleIndicator
         android:id="@+id/indicator"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPagerContainer" />
+        app:layout_constraintTop_toBottomOf="@+id/viewPagerContainer"
+        android:gravity="center_horizontal"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
