@@ -2,9 +2,11 @@ package com.dontsu.android_kotlin_viewpager_indicator.util
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.util.TypedValue
 import android.widget.ImageView
 import android.widget.LinearLayout
+import kotlin.math.log
 
 class CircleIndicator: LinearLayout {
 
@@ -19,12 +21,12 @@ class CircleIndicator: LinearLayout {
     private val temp = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP, 4.5f, resources.displayMetrics)
 
-    constructor(context: Context) : super(context) {
+    constructor(context: Context) : super(context) { //context는 MainActivity
 
         mContext = context
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) { //AttributeSet은 XML 태그에 넣은 속성들
 
         mContext = context
     }
@@ -43,11 +45,11 @@ class CircleIndicator: LinearLayout {
         mDefaultCircle = defaultCircle
         mSelectCircle = selectCircle
 
-        for (i in 0 until count) {
+        for (i in 0 until count) { //until은 count - 1 을 의미 => 0..count - 1 로 적어도 똑같은 결과.
 
             imageDot.add(ImageView(mContext).apply { setPadding(temp.toInt(), 0, temp.toInt(), 0) })
 
-            this.addView(imageDot[i])
+            this.addView(imageDot[i]) //CircleIndicator 클래스는 LinearLayout, 즉 LinearLayout에 점들을 추가시킴
         }
 
         //인덱스 선택
@@ -62,11 +64,11 @@ class CircleIndicator: LinearLayout {
 
         for (i in imageDot.indices) {
 
-            if (i == position) {
+            if (i == position) { //선택된 점: 보라색
 
                 imageDot[i].setImageResource(mSelectCircle)
 
-            } else {
+            } else { //기본 점 : 회색
 
                 imageDot[i].setImageResource(mDefaultCircle)
             }

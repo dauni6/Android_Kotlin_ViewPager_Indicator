@@ -2,6 +2,7 @@ package com.dontsu.android_kotlin_viewpager_indicator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -9,6 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.dontsu.android_kotlin_viewpager_indicator.fragments.PageOneFragment
 import com.dontsu.android_kotlin_viewpager_indicator.fragments.PageThreeFragment
 import com.dontsu.android_kotlin_viewpager_indicator.fragments.PageTwoFragment
+import com.dontsu.android_kotlin_viewpager_indicator.util.CircleIndicator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -46,6 +48,9 @@ class MainActivity : AppCompatActivity() {
 
         indicator.createDotPanel(3, R.drawable.indicator_dot_off, R.drawable.indicator_dot_on, 0)
 
+        if (indicator.context == this) {
+            Log.d("정체" , indicator.context.toString())
+        }
     }
 
     @Suppress("DEPRECATION")
